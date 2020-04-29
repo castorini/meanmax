@@ -61,7 +61,10 @@ python -m meanmax.run.simulate --action bs -s 30 --start-no 25 -n 100 --mc-total
 
 ### LSTM and MLP
 
-For convenience, first run `alias process_hedwig="(tail -n +2 data/hedwig.tsv | grep reg_lstm | cut -d$'\t' -f5 && echo && tail -n +2 data/hedwig.tsv | grep mlp | cut -d$'\t' -f5)"`.
+For convenience, first run
+```bash
+alias process_hedwig="(tail -n +2 data/hedwig.tsv | grep reg_lstm | cut -d$'\t' -f5 && echo && tail -n +2 data/hedwig.tsv | grep mlp | cut -d$'\t' -f5)"
+```
 Then, for each of the following scripts, append the `--unbiased` option to use the unbiased estimator, and `--swapped` to use the MLP instead of the LSTM.  
 
 **Drawing MeanMax curves**: `process_hedwig | python -m meanmax.run.simulate --action mme --use-kde`
