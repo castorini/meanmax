@@ -1,0 +1,21 @@
+[
+  {
+    "name": "--seed",
+    "sampling_fn": "randint",
+    "low": 0,
+    "high": 10000000
+  }, {
+    "name": "--hidden-dim",
+    "sampling_fn": "randint",
+    "low": 256,
+    "high": 768
+  }, {
+    "name": "--dropout",
+    "sampling_fn": "uniform",
+    "loc": 0.05,
+    "scale": 0.65
+  }, {
+    "name": "--batch-size",
+    "choices": [16, 32, 64]
+  }
+]
