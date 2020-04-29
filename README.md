@@ -1,7 +1,7 @@
 # MeanMax
 Implementations of the unbiased estimator and experiments from [Showing Your Work Doesn't Always Work](https://arxiv.org/abs/2004.13705) (ACL 2020).
 
-Citation:
+## Citation
 ```
 @misc{tang2020showing,
     title={Showing Your Work Doesn't Always Work},
