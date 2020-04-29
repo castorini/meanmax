@@ -1,9 +1,15 @@
 # MeanMax
-Implementations of the unbiased estimator and experiments from Showing Your Work Doesn't Always Work (ACL 2020).
+Implementations of the unbiased estimator and experiments from [Showing Your Work Doesn't Always Work](https://arxiv.org/abs/2004.13705) (ACL 2020).
 
 Citation:
 ```
-
+@misc{tang2020showing,
+    title={Showing Your Work Doesn't Always Work},
+    author={Raphael Tang and Jaejun Lee and Ji Xin and Xinyu Liu and Yaoliang Yu and Jimmy Lin},
+    year={2020},
+    eprint={2004.13705},
+    archivePrefix={arXiv}
+}
 ```
 
 ## Installation
@@ -53,5 +59,14 @@ To see the empirical coverage using the percentile bootstrap, run
 python -m meanmax.run.simulate --action bs -s 30 --start-no 25 -n 100 --mc-total 1000
 ```
 
-### MLP and LSTM
-Instruction coming soon.
+### LSTM and MLP
+
+For convenience, first run `alias process_hedwig="(tail -n +2 data/hedwig.tsv | grep reg_lstm | cut -d$'\t' -f5 && echo && tail -n +2 data/hedwig.tsv | grep mlp | cut -d$'\t' -f5)"`.
+Then, for each of the following scripts, append the `--unbiased` option to use the unbiased estimator, and `--swapped` to use the MLP instead of the LSTM.  
+
+**Drawing MeanMax curves**: `process_hedwig | python -m meanmax.run.simulate --action mme --use-kde`
+
+**False conclusion probing**: `process_hedwig | python -m meanmax.run.simulate --action mme-test --use-kde`
+
+**CI coverage**: `process_hedwig | python -m meanmax.run.simulate --action bs --use-kde -k <the k to test>`
+
