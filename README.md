@@ -53,7 +53,7 @@ python -m meanmax.run.simulate --action "mme-test" -s 30 --start-no 25 -n 5000 -
 
 The first should be around 68 and the second around 50.
 
-### CI coverage test
+#### CI coverage test
 To see the empirical coverage using the percentile bootstrap, run
 ```bash
 python -m meanmax.run.simulate --action bs -s 30 --start-no 25 -n 100 --mc-total 1000
